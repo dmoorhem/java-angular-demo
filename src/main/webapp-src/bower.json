@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "description": "Demo",
+  "license": "Internal Use Only",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

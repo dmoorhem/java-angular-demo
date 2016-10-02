@@ -1,0 +1,115 @@
+.rounded-corner()  {
+    border-radius: 4px;
+}
+
+html, body {
+    background-color: @app-background;
+}
+
+html {
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    position: relative;
+}
+
+body {
+    min-height: 100%;
+}
+
+#main {
+    margin-left: 0;
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+    transition: all 0.2s ease-out 0s;
+}
+
+#header {
+    height: 49px;
+    > div {
+        display: inline-block;
+        float: left;
+        height: 49px;
+        vertical-align: middle;
+    }
+}
+
+.page-footer {
+    background: #2a2725 none repeat scroll 0 0;
+    border-top: 1px solid #cecece;
+    bottom: 0;
+    display: block;
+    height: 52px;
+    padding: 15px 13px 0 233px;
+    position: absolute;
+    width: 100%;
+    color: white;
+}
+
+.page-title {
+    margin: 12px 0 28px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+button[disabled] {
+    color: #b5b5b5;
+}
+
+.edit-attribute {
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-backdrop {
+    height: 100%;
+    width: 100%;
+}
+
+table {
+    th.tablesort-sortable {
+        &.tablesort-asc:after, &.tablesort-desc:after {
+            visibility: visible;
+        }
+    }
+
+    th.tablesort-sortable {
+        cursor: pointer;
+        &:after {
+            content: "";
+            float: right;
+            margin-top: 7px;
+            visibility: hidden;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: none;
+            border-bottom: 4px solid #000;
+        }
+    }
+
+    th.tablesort-desc:after {
+        border-top: 4px solid #000;
+        border-bottom: none;
+    }
+
+    tr.showIfLast {
+        display: none;
+        &:last-child {
+            display: table-row;
+        }
+        td {
+            text-align: center;
+            &:after {
+                content: "No data with these selections";
+            }
+        }
+    }
+}
+
+.required-icon {
+    color: @brand-error;
+    font-size: 0.6em;
+    vertical-align: super;
+}

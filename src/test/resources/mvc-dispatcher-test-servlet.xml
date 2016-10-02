@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <context:component-scan base-package="com.panera"/>
+
+    <!--<context:property-placeholder location="file:/d01/Panera/Production/${environment.key:devrc}/config/properties/order-history.properties"-->
+    <!--order="-1" ignore-unresolvable="true" ignore-resource-not-found="true"/>-->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="dataSourceCDM" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+        <property name="URL" value="jdbc:oracle:thin:@//cdmdb01d.panerabread.com:1521/cdmdev.panerabread.com" />
+        <property name="user" value="PAN_CDM_APP"/>
+        <property name="password" value="bread4all"/>
+    </bean>
+
+    <!--<bean id="oracleDataSource"-->
+    <!--class="org.springframework.jndi.JndiObjectFactoryBean">-->
+    <!--<property name="jndiName" value="${jndi.name}" />-->
+    <!--</bean>-->
+
+
+
+
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler" />
+</beans>
